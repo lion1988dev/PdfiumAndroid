@@ -6,5 +6,6 @@ src/main/obj
 /local.properties
 .idea/
 .DS_Store
+.cxx
 /build
 /captures

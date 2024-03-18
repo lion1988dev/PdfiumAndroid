@@ -1,17 +1,9 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.0'
-    }
+plugins {
+    id 'com.android.library' version '8.3.0'
+    id 'maven-publish'
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+group "com.github.lion1988dev"
 
 android {
     namespace "com.shockwave.pdfium"
@@ -56,6 +48,8 @@ android {
         }
     }
 
+    ndkVersion '25.2.9519653'
+
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
@@ -70,13 +64,7 @@ android {
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
-
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.6.1'
 }
 
@@ -84,7 +72,7 @@ publishing {
     publications {
         release(MavenPublication) {
             groupId = 'com.github.lion1988dev'
-            artifactId = 'com.shockwave.pdfium'
+            artifactId = 'PdfiumAndroid'
             version = "1.9.1"
 
             afterEvaluate {
