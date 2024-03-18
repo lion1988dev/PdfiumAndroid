@@ -69,4 +69,4 @@ target_link_libraries( # Specifies the target library.
 
 add_library( libpdfium SHARED IMPORTED )
 
-set_target_properties( libpdfium PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI}/libpdfium.so)
+set_target_properties( libpdfium PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI}/libpdfium.cr.so)
