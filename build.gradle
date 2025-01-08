@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.library' version '8.3.0'
+    id 'com.android.library' version '8.7.3'
     id 'maven-publish'
 }
 
@@ -21,7 +21,7 @@ android {
     compileSdk rootProject.tools.compileSdk
 
     defaultConfig {
-        minSdkVersion rootProject.tools.minSdkVersion
+        minSdkVersion rootProject.tools.minSdk
         targetSdk rootProject.tools.targetSdk
 
         versionCode rootProject.tools.versionCode
@@ -61,7 +61,7 @@ android {
         }
     }
 
-    ndkVersion '25.2.9519653'
+    ndkVersion '28.0.12674087'
 
     externalNativeBuild {
         cmake {
