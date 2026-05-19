@@ -1,0 +1,12 @@
+[versions]
+android-sdk-min = "21"
+android-sdk-compile = "36"
+android-build-tools = "36.1.0"
+android-gradle-plugin = "9.2.1"
+androidx-collection = "1.6.0"
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+
+[libraries]
+androidx-collection = { module = "androidx.collection:collection", version.ref = "androidx-collection" }
