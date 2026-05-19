@@ -1,3 +1,6 @@
+## 1.9.5 (2026-05-19)
+* Add native libs 16KB size support
+
 ## 1.9.4 (2024-03-19)
 * Fix issue for the newest Android devices with API 34+
 
