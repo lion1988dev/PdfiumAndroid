@@ -4,7 +4,7 @@ plugins {
 }
 
 group "com.github.lion1988dev"
-version = '1.9.4'
+version = libs.versions.project.get()
 
 android {
     namespace "com.shockwave.pdfium"

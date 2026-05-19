@@ -1,4 +1,5 @@
 [versions]
+project = '1.9.4'
 android-sdk-min = "21"
 android-sdk-compile = "36"
 android-build-tools = "36.1.0"
