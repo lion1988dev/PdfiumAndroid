@@ -1,39 +1,21 @@
 plugins {
-    id 'com.android.library' version '8.3.0'
+    alias libs.plugins.android.library
     id 'maven-publish'
 }
 
-ext {
-    tools = [
-            minSdk      : 21,
-            targetSdk   : 34,
-            compileSdk  : 34,
-            versionCode: 3,
-            versionName: '1.9.4'
-    ]
-}
-
 group "com.github.lion1988dev"
+version = libs.versions.project.get()
 
 android {
     namespace "com.shockwave.pdfium"
 
-    compileSdk rootProject.tools.compileSdk
+    compileSdk libs.versions.android.sdk.compile.get().toInteger()
+    buildToolsVersion libs.versions.android.build.tools.get()
 
     defaultConfig {
-        minSdkVersion rootProject.tools.minSdkVersion
-        targetSdk rootProject.tools.targetSdk
+        minSdkVersion libs.versions.android.sdk.min.get()
 
-        versionCode rootProject.tools.versionCode
-        versionName "${rootProject.tools.versionName}"
-
-        buildConfigField 'String', 'VERSION_NAME', "\"${defaultConfig.versionName}\""
-
-        externalNativeBuild {
-            cmake {
-                cppFlags ""
-            }
-        }
+        buildConfigField 'String', 'VERSION_NAME', "\"${project.version}\""
     }
 
     buildFeatures {
@@ -43,7 +25,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -61,12 +43,9 @@ android {
         }
     }
 
-    ndkVersion '25.2.9519653'
-
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
-            version "3.22.1"
         }
     }
 
@@ -78,15 +57,15 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation libs.androidx.collection
 }
 
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.lion1988dev'
+            groupId = project.group
             artifactId = 'PdfiumAndroid'
-            version = "1.9.4"
+            version = project.version
 
             afterEvaluate {
                 from components.release
